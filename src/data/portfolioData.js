@@ -11,9 +11,10 @@ export const portfolioData = {
     description: "I am a passionate software engineer specializing in building scalable web applications and developing strong fundamentals in data structures, algorithms, and OOP.",
     typingTexts: ["Software Developer.", "Problem Solver.", "Tech Enthusiast.", "Continuous Learner."],
     socialLinks: [
-      { name: "GitHub", url: "https://github.com", icon: "Github" },
-      { name: "LinkedIn", url: "https://linkedin.com", icon: "Linkedin" },
-      { name: "Email", url: "mailto:rajesh@example.com", icon: "Mail" }
+      { name: "GitHub", url: "https://github.com/rajeshyadav1729i", icon: "Github" },
+      { name: "LinkedIn", url: "https://www.linkedin.com/in/rajeshyadav1729/", icon: "Linkedin" },
+      { name: "Email", url: "mailto:rayush1729i@gmail.com", icon: "Mail" },
+      { name: "Portfolio", url: "https://portfolio-rajeshyadav1729i.vercel.app", icon: "Globe" }
     ]
   },
   
@@ -159,7 +160,7 @@ export const portfolioData = {
   ],
 
   contact: {
-    email: "rajesh@example.com",
+    email: "rayush1729i@gmail.com",
     phone: "+91 xxxxx xxxxx",
     location: "Punjab, India",
     mapLink: "https://maps.google.com"
