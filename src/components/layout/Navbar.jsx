@@ -74,7 +74,7 @@ export const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
             <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-              Portfolio.
+              Rajesh Yadav.
             </a>
           </div>
 

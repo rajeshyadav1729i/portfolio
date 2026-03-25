@@ -1,20 +1,49 @@
-# React + Vite
+# Rajesh Yadav - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
+A modern, responsive portfolio website for Rajesh Yadav - Software Developer & Engineering Student.
 
-Currently, two official plugins are available:
+## Features
+- Modern UI with smooth animations
+- Responsive design
+- Dark/Light theme support
+- Project showcase
+- Skills and experience section
+- Contact form
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technologies Used
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Lucide React Icons
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+### Development
+```bash
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Build
+```bash
+npm run build
+```
 
+## Git Configuration
+Set up your git configuration with:
+```bash
+git config --global user.name "Rajesh Yadav"
+git config --global user.email "rayush1729i@gmail.com"
+```
 
-<!-- git config --global user.name "rajeshyadav1729i"
-git config --global user.email "rajeshyadavofficial1729i@gmail.com" -->
+## Deployment
+Deployed on Vercel: [portfolio-rajeshyadav1729i.vercel.app](https://portfolio-rajeshyadav1729i.vercel.app)
+
+## Author
+Rajesh Yadav - [GitHub](https://github.com/rajeshyadav1729i) | [LinkedIn](https://www.linkedin.com/in/rajeshyadav1729/)

@@ -1,8 +1,10 @@
 {
-  "name": "port",
+  "name": "rajesh-yadav-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "author": "Rajesh Yadav",
+  "description": "Portfolio of Rajesh Yadav - Software Developer & Engineering Student",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

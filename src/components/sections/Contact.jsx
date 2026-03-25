@@ -202,21 +202,6 @@ const Contact = () => {
                   </button>
                 </motion.div>
               ) : (
-                  <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-4">
-                    <CheckCircle2 className="w-10 h-10" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Message Sent!</h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-lg max-w-sm">
-                    Thank you for reaching out. I will get back to you as soon as possible.
-                  </p>
-                  <button 
-                    onClick={() => setIsSuccess(false)}
-                    className="mt-6 px-6 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-                  >
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     {/* Name */}
