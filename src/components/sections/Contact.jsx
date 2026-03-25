@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolioData';
 import { Mail, MapPin, Phone, Send, CheckCircle2 } from 'lucide-react';
@@ -11,6 +11,7 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const validate = () => {
     const newErrors = {};
@@ -35,10 +36,15 @@ const Contact = () => {
     }
   };
 
+  useEffect(() => {
+    emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
       setIsSubmitting(true);
+      setErrorMessage('');
 
       const templateParams = {
         from_name: formData.name,
@@ -53,8 +59,7 @@ const Contact = () => {
       emailjs.send(
         'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
         'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        templateParams,
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        templateParams
       )
       .then((result) => {
         console.log('Email sent successfully:', result.text, templateParams);
@@ -68,7 +73,8 @@ const Contact = () => {
       .catch((error) => {
         console.error('Email send failed:', error, templateParams);
         setIsSubmitting(false);
-        alert('Failed to send message. Make sure your EmailJS service/template/public key are configured correctly.');
+        setErrorMessage(error.text || error.message || 'Unexpected email send error');
+        setIsSuccess(false);
       });
     }
   };
@@ -168,12 +174,34 @@ const Contact = () => {
           <motion.div variants={itemVariants} className="md:col-span-3">
             <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
               
-              {isSuccess ? (
+              {isSuccess || errorMessage ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="h-full min-h-[400px] flex flex-col items-center justify-center text-center space-y-4"
                 >
+                  {errorMessage ? (
+                    <>
+                      <h3 className="text-3xl font-bold text-red-600 dark:text-red-400">Failed to send</h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-lg max-w-sm">{errorMessage}</p>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-4">
+                        <CheckCircle2 className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Message Sent!</h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-lg max-w-sm">Thank you for reaching out. I will get back to you as soon as possible.</p>
+                    </>
+                  )}
+                  <button 
+                    onClick={() => { setIsSuccess(false); setErrorMessage(''); }}
+                    className="mt-6 px-6 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                  >
+                    {errorMessage ? 'Try again' : 'Send another message'}
+                  </button>
+                </motion.div>
+              ) : (
                   <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-4">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
