@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-blue-50: #f5f3ff;
+  --color-blue-100: #ede9fe;
+  --color-blue-200: #ddd6fe;
+  --color-blue-300: #c4b5fd;
+  --color-blue-400: #a78bfa; /* Violet 400 */
+  --color-blue-500: #8b5cf6; /* Violet 500 */
+  --color-blue-600: #7c3aed; /* Violet 600 */
+  --color-blue-700: #6d28d9;
+  --color-blue-800: #5b21b6;
+  --color-blue-900: #4c1d95;
+
+  --color-indigo-400: #2dd4bf; /* Teal 400 */
+  --color-indigo-500: #14b8a6; /* Teal 500 */
+  --color-indigo-600: #0d9488; /* Teal 600 */
+}
+
+@layer theme {
+  :root {
+    --color-background: #ffffff;
+    --color-foreground: #0f172a;
+    --color-primary: #7c3aed;
+    --color-primary-dark: #6d28d9;
+    --color-secondary: #64748b;
+    --color-border: #e2e8f0;
+  }
+  
+  .dark {
+    --color-background: #09090b; /* Ultra dark sleek background */
+    --color-foreground: #f8fafc;
+    --color-primary: #8b5cf6;
+    --color-primary-dark: #a78bfa;
+    --color-secondary: #94a3b8;
+    --color-border: #1e293b;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    cursor: none; /* Hide default cursor to use custom one */
+  }
+  
+  /* Show default cursor on links inside the custom cursor context */
+  a, button, input, textarea {
+    cursor: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
