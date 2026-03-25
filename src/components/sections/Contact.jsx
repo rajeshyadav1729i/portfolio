@@ -39,33 +39,36 @@ const Contact = () => {
     e.preventDefault();
     if (validate()) {
       setIsSubmitting(true);
-      
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: home.name,
+        subject: `New contact from ${formData.name}`,
+        contact_number: contact.phone,
+      };
+
       // Send email using EmailJS
       emailjs.send(
         'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
         'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_name: home.name,
-        },
+        templateParams,
         'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
       )
       .then((result) => {
-        console.log('Email sent successfully:', result.text);
+        console.log('Email sent successfully:', result.text, templateParams);
         setIsSubmitting(false);
         setIsSuccess(true);
         setFormData({ name: '', email: '', message: '' });
-        
+
         // Reset success message after 5 seconds
         setTimeout(() => setIsSuccess(false), 5000);
       })
       .catch((error) => {
-        console.error('Email send failed:', error);
+        console.error('Email send failed:', error, templateParams);
         setIsSubmitting(false);
-        // You can add error handling here
-        alert('Failed to send message. Please try again or contact directly via email.');
+        alert('Failed to send message. Make sure your EmailJS service/template/public key are configured correctly.');
       });
     }
   };
