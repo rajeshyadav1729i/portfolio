@@ -2,6 +2,7 @@ import {
   Code2, Database, Layout, Server, Smartphone, 
   Terminal, Globe, Cpu, Github, Linkedin, Mail 
 } from 'lucide-react';
+import project1Image from '../assets/hero.png';
 
 export const portfolioData = {
   home: {
@@ -95,9 +96,9 @@ export const portfolioData = {
       id: 1,
       title: "Event Management Calander",
       description: "Developed an interactive calendar-based application that enables users to create, update, and delete events with real-time synchronization. Implemented reminders and notifications for upcoming events. Spiked productivity by simplifying event scheduling.",
-      image: "https://images.unsplash.com/photo-1506784951206-b3334bb2f5a6?q=80&w=2000&auto=format&fit=crop",
+      image: project1Image,
       technologies: ["JavaScript", "HTML", "CSS", "PHP"],
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/rajeshyadav1729i/event-management-calendar",
       liveUrl: ""
     },
     {
@@ -106,7 +107,7 @@ export const portfolioData = {
       description: "Designed and developed a responsive website that allows users to book salon appointments by selecting services, stylists, and preferred time slots. Implemented client-side form validation and interactive features to ensure smooth and error-free bookings.",
       image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2000&auto=format&fit=crop",
       technologies: ["JavaScript", "HTML", "CSS"],
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/rajeshyadav1729i/online-salon-booking-system",
       liveUrl: ""
     }
   ],
