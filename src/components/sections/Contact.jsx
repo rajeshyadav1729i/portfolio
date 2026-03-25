@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolioData';
 import { Mail, MapPin, Phone, Send, CheckCircle2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { contact, home } = portfolioData;
@@ -39,15 +40,33 @@ const Contact = () => {
     if (validate()) {
       setIsSubmitting(true);
       
-      // Simulate API call
-      setTimeout(() => {
+      // Send email using EmailJS
+      emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: home.name,
+        },
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      )
+      .then((result) => {
+        console.log('Email sent successfully:', result.text);
         setIsSubmitting(false);
         setIsSuccess(true);
         setFormData({ name: '', email: '', message: '' });
         
         // Reset success message after 5 seconds
         setTimeout(() => setIsSuccess(false), 5000);
-      }, 1500);
+      })
+      .catch((error) => {
+        console.error('Email send failed:', error);
+        setIsSubmitting(false);
+        // You can add error handling here
+        alert('Failed to send message. Please try again or contact directly via email.');
+      });
     }
   };
 

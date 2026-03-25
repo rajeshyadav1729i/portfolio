@@ -161,7 +161,7 @@ export const portfolioData = {
 
   contact: {
     email: "rayush1729i@gmail.com",
-    phone: "+91 xxxxx xxxxx",
+    phone: "+91 8957082481",
     location: "Punjab, India",
     mapLink: "https://maps.google.com"
   }
